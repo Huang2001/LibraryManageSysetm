@@ -1,6 +1,6 @@
 总体设计：
-将jsp改成HTML
-将静态文件（图片，CSS，HTML，JS）放入Nginx，
+将静态文件（图片，CSS，HTML，JS）放入Nginx
+将jsp放在第一个Tomcat服务器，由Nginx路由到Tomcat
 后端接口采用微服务架构，接口通过springcloud Gateway组件统一路由，配置通过springcloud config统一管理，服务发现与注册采用Eureka
 
 将应用垂直拆分成多个服务（功能相近的业务拆成一个服务）如下：
