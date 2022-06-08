@@ -103,7 +103,9 @@
                     maxmin:true,
                     shadeClose: true,
                     area: ['60%', '60%'],
-                    content: '${pageContext.request.contextPath}/queryNoticeById?id='+data.id,
+                    <%--content: '${pageContext.request.contextPath}/queryNoticeById?id='+data.id,--%>
+                    // C:\Users\9\Desktop\spring项目\LibraryManageSysetm\SystemManage\src\main\java\cn\edu\ecut\controller\NoticeController.java
+                    content: 'http://101.34.207.32:8081/SystemManage/queryNoticeById?id='+data.id,
                 });
                 $(window).on("resize", function () {
                     layer.full(index);

@@ -22,7 +22,7 @@
             background-color: #ffffff;
         }
     </style>
-</head>
+</head>/
 <body>
 <div class="layui-form layuimini-form">
     <input type="hidden" name="id"  value="${info.id}">

@@ -80,7 +80,9 @@
 
         table.render({
             elem: '#currentTableId',
-            url: '${pageContext.request.contextPath}/lendListAll',//查询借阅图书记录
+            <%--url: '${pageContext.request.contextPath}/lendListAll',//查询借阅图书记录--%>
+            // C:\Users\9\Desktop\spring项目\LibraryManageSysetm\BooksLendService\src\main\java\cn\edu\ecut\controller\LendListController.java
+            url: 'http://101.34.207.32:8081/BooksLendService/lendListAll',//查询借阅图书记录
             toolbar: '#toolbarDemo',
             defaultToolbar: ['filter', 'exports', 'print', {
                 title: '提示',
@@ -198,7 +200,9 @@
                 maxmin:true,
                 shadeClose: true,
                 area: ['60%', '60%'],
-                content: '${pageContext.request.contextPath}/queryLookBookList?id='+id+"&flag="+flag,
+                <%--content: '${pageContext.request.contextPath}/queryLookBookList?id='+id+"&flag="+flag,--%>
+                // C:\Users\9\Desktop\spring项目\LibraryManageSysetm\BooksLendService\src\main\java\cn\edu\ecut\controller\LendListController.java
+                content: 'http://101.34.207.32:8081/BooksLendService/queryLookBookList?id='+id+"&flag="+flag,
             });
             $(window).on("resize", function () {
                 layer.full(index);
@@ -303,7 +307,9 @@
                     maxmin:true,
                     shadeClose: true,
                     area: ['100%', '100%'],
-                    content: '${pageContext.request.contextPath}/addLendList',
+                    <%--content: '${pageContext.request.contextPath}/addLendList',--%>
+                    // C:\Users\9\Desktop\spring项目\LibraryManageSysetm\BooksLendService\src\main\java\cn\edu\ecut\controller\LendListController.java
+                    content: 'http://101.34.207.32:8081/BooksLendService/addLendList',
                 });
                 $(window).on("resize", function () {
                     layer.full(index);

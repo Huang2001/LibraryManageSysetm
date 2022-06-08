@@ -52,7 +52,9 @@
 
         table.render({
             elem: '#currentTableId',
-            url: '${pageContext.request.contextPath}/noticeAll',//查询类型数据
+            <%--url: '${pageContext.request.contextPath}/noticeAll',//查询类型数据--%>
+            <%--url: '${pageContext.request.contextPath}/noticeAll',//查询类型数据--%>
+            url: 'http://101.34.207.32:8081/SystemManage/noticeAll',//查询类型数据
             toolbar: '#toolbarDemo',
             defaultToolbar: ['filter', 'exports', 'print', {
                 title: '提示',

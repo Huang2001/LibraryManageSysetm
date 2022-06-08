@@ -37,7 +37,10 @@
 <div class="layui-container">
     <div class="admin-login-background">
         <div class="layui-form login-form">
-            <form class="layui-form"  action="${pageContext.request.contextPath}/loginIn" method="post">
+<%--            <form class="layui-form"  action="${pageContext.request.contextPath}/loginIn" method="post">--%>
+<%--    http://101.34.207.32:8081/对应的服务名/该服务上的接口--%>
+<%--    C:\Users\9\Desktop\spring项目\LibraryManageSysetm\SystemManage\src\main\java\cn\edu\ecut\controller\LoginController.java--%>
+            <form class="layui-form"  action="http://101.34.207.32:8081/SystemManage/loginIn" method="post">
                 <div class="layui-form-item logo-title">
                     <h1>图书管理系统</h1>
                     <div style="color: red;text-align: center;">${msg}</div>
