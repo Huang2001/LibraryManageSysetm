@@ -1,11 +1,18 @@
+# 任务书
+
+## TODO
+
 把所有在jsp中的后端接口调用改成微服务形式：
 总共有三个微服务名称如下 ：
-1.BooksManageService
-2.BookLendService
-3.SystemManage
-然后找出需要更改的前端jsp接口，然后和后端3个微服务接口对应上，最后将jsp的请求接口改成右边的形式：   http://101.34.207.32:8081/对应的服务名/该服务上的接口
-example：
 
+- BooksManageService
+- BookLendService
+- SystemManage
+  然后找出需要更改的前端jsp接口，然后和后端3个微服务接口对应上，最后将jsp的请求接口改成右边的形式：   http://101.34.207.32:8081/对应的服务名/该服务上的接口
+
+### example：
+
+```java
 @Controller
 public class BookInfoController {
 
@@ -96,13 +103,17 @@ public class BookInfoController {
         return lists;
     }
 }
-这个controller是在BooksManageService微服务中，
-    @RequestMapping("/bookAll")
-    @ResponseBody       //@ResponseBody将java对象转为json格式的数据，表示该方法的返回结果直接写入 HTTP response body 中，一般在异步ajax获取数据时使用
-    public DataInfo bookAll(BookInfo bookInfo, @RequestParam(defaultValue = "1") Integer pageNum, @RequestParam(defaultValue = "15") Integer limit){
+```
+
+这个`controller`是在`BooksManageService`微服务中，
+
+```java
+@RequestMapping("/bookAll")
+@ResponseBody       //@ResponseBody将java对象转为json格式的数据，表示该方法的返回结果直接写入 HTTP response body 中，一般在异步ajax获取数据时使用
+public DataInfo bookAll(BookInfo bookInfo, @RequestParam(defaultValue = "1") Integer pageNum, @RequestParam(defaultValue = "15") Integer limit){
         PageInfo<BookInfo> pageInfo = bookInfoService.queryBookInfoAll(bookInfo,pageNum,limit);
         return DataInfo.ok("成功",pageInfo.getTotal(),pageInfo.getList());//总条数getTotal，数据封装成list,以便加载分页显示,由于加了ResponseBody,就会返回一个字符串
-    }
-    
-    
-   比如这个接口在该服务中本是/bookAll  需要在jsp中改成http://101.34.207.32:8081/BooksManageService/bookAll
+        }
+```
+
+比如这个接口在该服务中本是/bookAll 需要在jsp中改成http://101.34.207.32:8081/BooksManageService/bookAll
