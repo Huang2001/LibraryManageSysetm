@@ -94,7 +94,7 @@
         //监听提交
         form.on('submit(saveBtn)', function (data) {
             var datas=data.field;//form单中的数据信息
-            //向后台发送数据提交添加
+            //向后台发送/数据提交添加
             $.ajax({
                 // C:\Users\9\Desktop\spring项目\LibraryManageSysetm\BooksLendService\src\main\java\cn\edu\ecut\controller\ReaderInfoController.java
                 // http://101.34.207.32:8081/对应的服务名/该服务上的接口

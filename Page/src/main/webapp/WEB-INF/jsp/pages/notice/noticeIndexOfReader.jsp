@@ -44,7 +44,9 @@
 
         table.render({
             elem: '#currentTableId',
-            url: '${pageContext.request.contextPath}/noticeAll',//查询类型数据
+            <%--url: '${pageContext.request.contextPath}/noticeAll',//查询类型数据--%>
+            // C:\Users\9\Desktop\spring项目\LibraryManageSysetm\SystemManage\src\main\java\cn\edu\ecut\controller\NoticeController.java
+            url: 'http://101.34.207.32:8081/SystemManage/noticeAll',//查询类型数据
             toolbar: '#toolbarDemo',
             defaultToolbar: ['filter', 'exports', 'print', {
                 title: '提示',

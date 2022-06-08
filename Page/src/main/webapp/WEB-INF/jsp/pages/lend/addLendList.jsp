@@ -54,9 +54,11 @@
             table = layui.table;
         //方法级渲染
         table.render({
-            elem: '#currentTableId'
-            ,url: '${pageContext.request.contextPath}/bookAll'
-            ,cols: [[
+            elem: '#currentTableId',
+            <%--,url: '${pageContext.request.contextPath}/bookAll'--%>
+            // C:\Users\9\Desktop\spring项目\LibraryManageSysetm\BooksManageService\src\main\java\cn\edu\ecut\controller\BookInfoController.java
+            url: 'http://101.34.207.32:8081/BooksManageService/bookAll',
+            cols: [[
                 {type: "checkbox", width: 50},
                 //{field: 'id', width: 100, title: 'ID', sort: true},
                 {field: 'isbn', width: 150, title: '图书编号'},

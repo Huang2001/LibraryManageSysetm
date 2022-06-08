@@ -162,7 +162,9 @@
                     maxmin:true,
                     shadeClose: true,
                     area: ['100%', '100%'],
-                    content: '${pageContext.request.contextPath}/excBackBook?id='+data.id+"&bookId="+data.bookId,
+                    // C:\Users\9\Desktop\spring项目\LibraryManageSysetm\BooksLendService\src\main\java\cn\edu\ecut\controller\LendListController.java
+                    // http://101.34.207.32:8081/对应的服务名/该服务上的接口
+                    content: 'http://101.34.207.32:8081/BooksLendService/excBackBook?id='+data.id+"&bookId="+data.bookId,
                 });
                 $(window).on("resize", function () {
                     layer.full(index);

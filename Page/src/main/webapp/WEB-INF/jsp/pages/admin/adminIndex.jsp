@@ -62,7 +62,8 @@
 
         table.render({
             elem: '#currentTableId',
-            url: '${pageContext.request.contextPath}/adminAll',//查询全部数据
+            // C:\Users\9\Desktop\spring项目\LibraryManageSysetm\SystemManage\src\main\java\cn\edu\ecut\controller\AdminController.java
+            url: 'http://101.34.207.32:8081/SystemManage/adminAll',//查询全部数据
             toolbar: '#toolbarDemo',
             defaultToolbar: ['filter', 'exports', 'print', {
                 title: '提示',
@@ -125,7 +126,9 @@
                     maxmin:true,
                     shadeClose: true,
                     area: ['60%', '60%'],
-                    content: '${pageContext.request.contextPath}/queryAdminById?id='+data.id,
+                    <%--content: '${pageContext.request.contextPath}/queryAdminById?id='+data.id,--%>
+                    // C:\Users\9\Desktop\spring项目\LibraryManageSysetm\SystemManage\src\main\java\cn\edu\ecut\service\imp\AdminServiceImpl.java
+                    content: 'http://101.34.207.32:8081/SystemManage/queryAdminById?id='+data.id,
                 });
                 $(window).on("resize", function () {
                     layer.full(index);
@@ -197,7 +200,9 @@
                     maxmin:true,
                     shadeClose: true,
                     area: ['60%', '60%'],
-                    content: '${pageContext.request.contextPath}/adminAdd',
+                    <%--content: '${pageContext.request.contextPath}/adminAdd',--%>
+                    // C:\Users\9\Desktop\spring项目\LibraryManageSysetm\SystemManage\src\main\java\cn\edu\ecut\controller\AdminController.java
+                    content: 'http://101.34.207.32:8081/SystemManage/adminAdd',
                 });
                 $(window).on("resize", function () {
                     layer.full(index);

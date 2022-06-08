@@ -83,7 +83,9 @@
 
         table.render({
             elem: '#currentTableId',
-            url: '${pageContext.request.contextPath}/bookAll',//查询类型数据
+            <%--url: '${pageContext.request.contextPath}/bookAll',//查询类型数据--%>
+            // C:\Users\9\Desktop\spring项目\LibraryManageSysetm\BooksManageService\src\main\java\cn\edu\ecut\controller\BookInfoController.java
+            url: 'http://101.34.207.32:8081/BooksManageService/bookAll',//查询类型数据
             toolbar: '#toolbarDemo',
             defaultToolbar: ['filter', 'exports', 'print', {
                 title: '提示',
@@ -146,7 +148,9 @@
                     maxmin:true,
                     shadeClose: true,
                     area: ['100%', '100%'],
-                    content: '${pageContext.request.contextPath}/queryBookInfoById?id='+data.id,
+                    <%--content: '${pageContext.request.contextPath}/queryBookInfoById?id='+data.id,--%>
+                    // C:\Users\9\Desktop\spring项目\LibraryManageSysetm\BooksManageService\src\main\java\cn\edu\ecut\controller\OuterController.java
+                    content: 'http://101.34.207.32:8081/BooksManageService/queryBookInfoById?id='+data.id,
                 });
                 $(window).on("resize", function () {
                     layer.full(index);
@@ -218,7 +222,8 @@
                     maxmin:true,
                     shadeClose: true,
                     area: ['100%', '100%'],
-                    content: '${pageContext.request.contextPath}/bookAdd',
+                    // C:\Users\9\Desktop\spring项目\LibraryManageSysetm\BooksManageService\src\main\java\cn\edu\ecut\controller\BookInfoController.java
+                    content: 'http://101.34.207.32:8081/BooksManageService/bookAdd',
                 });
                 $(window).on("resize", function () {
                     layer.full(index);

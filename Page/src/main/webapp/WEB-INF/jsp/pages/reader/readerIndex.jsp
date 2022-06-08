@@ -66,7 +66,9 @@
 
         table.render({
             elem: '#currentTableId',
-            url: '${pageContext.request.contextPath}/readerAll',//查询数据
+            <%--url: '${pageContext.request.contextPath}/readerAll',//查询数据--%>
+            // C:\Users\9\Desktop\spring项目\LibraryManageSysetm\BooksLendService\src\main\java\cn\edu\ecut\controller\ReaderInfoController.java
+            url: 'http://101.34.207.32:8081/BooksLendService/readerAll',//查询数据
             toolbar: '#toolbarDemo',
             defaultToolbar: ['filter', 'exports', 'print', {
                 title: '提示',
@@ -130,7 +132,9 @@
                     maxmin:true,
                     shadeClose: true,
                     area: ['100%', '100%'],
-                    content: '${pageContext.request.contextPath}/queryReaderInfoById?id='+data.id,
+                    <%--content: '${pageContext.request.contextPath}/queryReaderInfoById?id='+data.id,--%>
+                    // C:\Users\9\Desktop\spring项目\LibraryManageSysetm\BooksLendService\src\main\java\cn\edu\ecut\controller\ReaderInfoController.java
+                    content: 'http://101.34.207.32:8081/BooksLendService/queryReaderInfoById?id='+data.id,
                 });
                 $(window).on("resize", function () {
                     layer.full(index);
@@ -202,7 +206,9 @@
                     maxmin:true,
                     shadeClose: true,
                     area: ['100%', '100%'],
-                    content: '${pageContext.request.contextPath}/readerAdd',
+                    <%--content: '${pageContext.request.contextPath}/readerAdd',--%>
+                    // C:\Users\9\Desktop\spring项目\LibraryManageSysetm\BooksLendService\src\main\java\cn\edu\ecut\controller\ReaderInfoController.java
+                    content: 'http://101.34.207.32:8081/BooksLendService/readerAdd',
                 });
                 $(window).on("resize", function () {
                     layer.full(index);
