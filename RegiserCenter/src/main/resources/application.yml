@@ -1,0 +1,9 @@
+eureka:
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://localhost:1005/eureka
+
+server:
+  port: 1005

@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: BooksManageServic
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://101.34.207.32:3306/booksmanageservice
+    username: root
+    password: huanghengliang2001
+
+server:
+  port: 1001
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1005/eureka
+    healthcheck:
+      enabled: true
+  instance:
+    hostname: localhost
+

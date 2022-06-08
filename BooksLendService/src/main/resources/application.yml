@@ -1,0 +1,16 @@
+server:
+  port: 1002
+
+spring:
+  application:
+    name: bookslendservice
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://101.34.207.32:3306/booksmanageservice
+    username: root
+    password: huanghengliang2001
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1005/eureka
