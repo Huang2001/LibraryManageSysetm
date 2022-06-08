@@ -41,7 +41,7 @@ public class NoticeController {
     @RequestMapping("/noticeAll")
     @ResponseBody
     public DataInfo noticeAll(Notice notice, @RequestParam(defaultValue = "1") Integer pageNum, @RequestParam(defaultValue = "15")Integer limit){
-        PageInfo<Notice> pageInfo = noticeService.queryAllNotice(notice, pageNum, limit);
+       PageInfo<Notice> pageInfo = noticeService.queryAllNotice(notice, pageNum, limit);
         return DataInfo.ok("成功",pageInfo.getTotal(),pageInfo.getList());
     }
     /**

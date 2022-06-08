@@ -124,7 +124,9 @@
         function lendBook(datas){
             //向后台发送请求
             $.ajax({
-                url: "addLend",
+                // C:\Users\9\Desktop\spring项目\LibraryManageSysetm\BooksLendService\src\main\java\cn\edu\ecut\controller\LendListController.java
+                // url: "addLend",
+                url: "http://101.34.207.32:8081/BooksLendService/addLend",
                 type: "POST",
                 data: datas,
                 success: function (result) {

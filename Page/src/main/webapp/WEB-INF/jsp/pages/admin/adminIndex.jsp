@@ -163,7 +163,9 @@
         function deleteInfoByIds(ids ,index){
             //向后台发送请求
             $.ajax({
-                url: "deleteAdminByIds",
+                // C:\Users\9\Desktop\spring项目\LibraryManageSysetm\SystemManage\src\main\java\cn\edu\ecut\controller\AdminController.java
+                // url: "deleteAdminByIds",
+                url:"http://101.34.207.32:8081/SystemManage/deleteAdminByIds",
                 type: "POST",
                 data: {ids: ids},
                 success: function (result) {

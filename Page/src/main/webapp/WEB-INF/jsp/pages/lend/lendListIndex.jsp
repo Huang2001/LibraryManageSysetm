@@ -241,7 +241,10 @@
         function deleteInfoByIds(ids ,bookIds,index){
             //向后台发送请求
             $.ajax({
-                url: "deleteLendListByIds",
+                // C:\Users\9\Desktop\spring项目\LibraryManageSysetm\BooksLendService\src\main\java\cn\edu\ecut\controller\LendListController.java
+                // url: "deleteLendListByIds",
+                url: "http://101.34.207.32:8081/BooksLendService/deleteLendListByIds",
+                // http://101.34.207.32:8081/对应的服务名/该服务上的接口
                 type: "POST",
                 data: {ids: ids,bookIds:bookIds},
                 success: function (result) {

@@ -168,7 +168,9 @@
         function deleteInfoByIds(ids ,index){
             //向后台发送请求
             $.ajax({
-                url: "deleteReader",
+                // C:\Users\9\Desktop\spring项目\LibraryManageSysetm\BooksLendService\src\main\java\cn\edu\ecut\controller\ReaderInfoController.java
+                // url: "deleteReader",
+                url: "http://101.34.207.32:8081/BooksLendService/deleteReader",
                 type: "POST",
                 data: {ids: ids},
                 success: function (result) {

@@ -64,7 +64,10 @@
             }else{
                 //向后台发送数据提交添加
                 $.ajax({
-                    url:"updatePwdSubmit2", //读者的修改密码
+                    // 注意： 这个请求接口被注释
+                    // http://101.34.207.32:8081/对应的服务名/该服务上的接口
+                    // url:"updatePwdSubmit2", //读者的修改密码
+                    url:"http://101.34.207.32:8081/BooksLendService/updatePwdSubmit2", //读者的修改密码
                     type:"POST",
                     data: {
                         oldPwd:datas.oldPwd,

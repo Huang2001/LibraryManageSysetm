@@ -147,7 +147,9 @@
         function deleteInfoByIds(ids ,index){
             //向后台发送请求
             $.ajax({
-                url: "deleteNoticeByIds",
+                // C:\Users\9\Desktop\spring项目\LibraryManageSysetm\SystemManage\src\main\java\cn\edu\ecut\controller\NoticeController.java
+                // url: "deleteNoticeByIds",
+                url: "http://101.34.207.32:8081/SystemManage/deleteNoticeByIds",
                 type: "POST",
                 data: {ids: ids},
                 success: function (result) {

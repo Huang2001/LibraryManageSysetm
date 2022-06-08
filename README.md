@@ -1,5 +1,9 @@
 # 任务书
 
+## 目前有疑问的页面
+
+
+
 ## TODO
 
 把所有在jsp中的后端接口调用改成微服务形式：
@@ -9,7 +13,9 @@
 - BookLendService
 - SystemManage
 
-然后找出需要更改的前端jsp接口，然后和后端3个微服务接口对应上，最后将jsp的请求接口改成右边的形式：   http://101.34.207.32:8081/对应的服务名/该服务上的接口
+然后找出需要更改的前端jsp接口，然后和后端3个微服务接口对应上，最后将jsp的请求接口改成右边的形式：
+http://101.34.207.32:8081/对应的服务名/该服务上的接口
+
 
 ### example：
 
@@ -40,7 +46,8 @@ public class BookInfoController {
      * @return
      */
     @RequestMapping("/bookAll")
-    @ResponseBody       //@ResponseBody将java对象转为json格式的数据，表示该方法的返回结果直接写入 HTTP response body 中，一般在异步ajax获取数据时使用
+    @ResponseBody       
+    //@ResponseBody将java对象转为json格式的数据，表示该方法的返回结果直接写入 HTTP response body 中，一般在异步ajax获取数据时使用
     public DataInfo bookAll(BookInfo bookInfo, @RequestParam(defaultValue = "1") Integer pageNum, @RequestParam(defaultValue = "15") Integer limit){
         PageInfo<BookInfo> pageInfo = bookInfoService.queryBookInfoAll(bookInfo,pageNum,limit);
         return DataInfo.ok("成功",pageInfo.getTotal(),pageInfo.getList());//总条数getTotal，数据封装成list,以便加载分页显示,由于加了ResponseBody,就会返回一个字符串

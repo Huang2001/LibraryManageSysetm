@@ -53,7 +53,10 @@
             var datas=data.field;//form单中的数据信息
             //向后台发送数据提交添加
             $.ajax({
-                url:"addNoticeSubmit",
+                // SystemManage/src/main/java/cn/edu/ecut/controller/NoticeController.java
+                // C:\Users\9\Desktop\spring项目\LibraryManageSysetm\SystemManage\src\main\java\cn\edu\ecut\controller\NoticeController.java
+                // url:"addNoticeSubmit",
+                url: "http://101.34.207.32:8081/SystemManage/addNoticeSubmit",
                 type:"POST",
                 data:datas,
                 success:function(result){

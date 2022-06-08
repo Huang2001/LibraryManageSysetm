@@ -59,7 +59,9 @@
             var datas=data.field;//form单中的数据信息
             //向后台发送数据提交添加
             $.ajax({
-                url:"addAdminSubmit",
+                // C:\Users\9\Desktop\spring项目\LibraryManageSysetm\SystemManage\src\main\java\cn\edu\ecut\controller\AdminController.java
+                // url:"addAdminSubmit",
+                url:"http://101.34.207.32:8081/SystemManage/addAdminSubmit",
                 type:"POST",
                 data:datas,
                 success:function(result){

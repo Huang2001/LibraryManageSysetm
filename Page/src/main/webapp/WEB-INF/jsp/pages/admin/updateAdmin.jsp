@@ -60,7 +60,9 @@
             }else{
                 //向后台发送数据提交添加
                 $.ajax({
-                    url:"updatePwdSubmit",
+                    // C:\Users\9\Desktop\spring项目\LibraryManageSysetm\SystemManage\src\main\java\cn\edu\ecut\controller\AdminController.java
+                    // url:"updatePwdSubmit",
+                    url: "http://101.34.207.32:8081/SystemManage/updatePwdSubmit",
                     type:"POST",
                     data: {
                         id:datas.id,

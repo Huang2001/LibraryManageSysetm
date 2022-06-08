@@ -123,7 +123,8 @@
             var datas=data.field;//form单中的数据信息
             //向后台发送数据提交添加
             $.ajax({
-                url:"addBookSubmit",
+                // url:"addBookSubmit",
+                url: "http://101.34.207.32:8081/BooksManageService/addBookSubmit",
                 type:"POST",
                 data:datas,
                 success:function(result){

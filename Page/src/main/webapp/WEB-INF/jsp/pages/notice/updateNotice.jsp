@@ -59,7 +59,9 @@
             var datas=data.field;//form单中的数据信息
             //向后台发送数据提交添加
             $.ajax({
-                url:"updateTypeSubmit",
+                // http://101.34.207.32:8081/对应的服务名/该服务上的接口
+                // url:"updateTypeSubmit",
+                url: "http://101.34.207.32:8081/BooksManageService/updateTypeSubmit",
                 type:"POST",
                 // data:datas,
                 contentType:"application/json",
