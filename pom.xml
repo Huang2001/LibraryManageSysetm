@@ -15,7 +15,8 @@
         <module>SystemManage</module>
         <module>BooksManageService</module>
         <module>BooksLendService</module>
-        <module>Router</module>
+        <module>Page</module>
+        <module>Page</module>
     </modules>
 
     <properties>

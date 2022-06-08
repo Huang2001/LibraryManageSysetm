@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: bookslendservice
+    name: BooksLendService
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://101.34.207.32:3306/booksmanageservice
