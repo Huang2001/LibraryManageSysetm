@@ -21,17 +21,20 @@
 </head>
 <body>
 <div class="layui-form layuimini-form">
-    <input type="hidden" name="id"   value="${info.id}">
+    <input type="hidden" name="id" id="bookName">
     <div class="layui-form-item">
         <label class="layui-form-label required">图书名称</label>
         <div class="layui-input-block">
-            <input type="text" name="name" lay-verify="required"  value="${info.name}" class="layui-input">
+            <%--            <input type="text" name="name" lay-verify="required" value="${info.name}" class="layui-input">--%>
+            <input type="text" name="name" lay-verify="required" class="layui-input " id="bookNameInput">
         </div>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label required">图书编号</label>
-        <div class="layui-input-block">
-            <input type="text" name="isbn" lay-verify="required"value="${info.isbn}"  class="layui-input">
+        <div class="layui-input;-block">
+
+            <%--            <input type="text" name="isbn" lay-verify="required" value="${info.isbn}" class="layui-input">--%>
+            <input type="text" name="isbn" lay-verify="required"  class="layui-input" id="bookIsbnInput">
         </div>
     </div>
 
@@ -39,7 +42,8 @@
         <label class="layui-form-label required">图书类别</label>
         <div class="layui-input-block">
             <select name="typeId" id="typeId" lay-verify="required">
-                <option value="${info.typeId}">请选择</option>
+                <%--                <option value="${info.typeId}">请选择</option>--%>
+                <option id="bookTypeId">请选择</option>
             </select>
         </div>
     </div>
@@ -47,36 +51,42 @@
     <div class="layui-form-item">
         <label class="layui-form-label required">图书作者</label>
         <div class="layui-input-block">
-            <input type="text" name="author" lay-verify="required" value="${info.author}"   class="layui-input">
+            <%--            <input type="text" name="author" lay-verify="required" value="${info.author}" class="layui-input">--%>
+            <input type="text" id="bookAuthor" name="author" lay-verify="required"  class="layui-input">
         </div>
     </div>
 
     <div class="layui-form-item">
         <label class="layui-form-label required">图书出版社</label>
         <div class="layui-input-block">
-            <input type="text" name="publish" lay-verify="required" value="${info.publish}"   class="layui-input">
+            <%--            <input type="text" name="publish" lay-verify="required" value="${info.publish}" class="layui-input">--%>
+            <input type="text" id="bookPublish" name="publish" lay-verify="required" " class="layui-input">
         </div>
     </div>
 
     <div class="layui-form-item">
         <label class="layui-form-label required">图书语言</label>
         <div class="layui-input-block">
-            <input type="text" name="language"  value="${info.language}"   class="layui-input">
+            <%--            <input type="text" name"language=" value="${info.language}" class="layui-input">--%>
+            <input type="text" id="bookLanguage" name="language"  class="layui-input">
         </div>
     </div>
 
     <div class="layui-form-item">
         <label class="layui-form-label required">图书价格</label>
         <div class="layui-input-block">
-            <input type="number" name="price"  value="${info.price}"   class="layui-input">
+            <%--            <input type="number" name="price" value="${info.price}" class="layui-input">--%>
+            <input type="number"  id="bookPrice" name="price"  class="layui-input">
         </div>
     </div>
 
     <div class="layui-form-item">
         <label class="layui-form-label">出版日期</label>
         <div class="layui-input-block">
+            <%--            <input type="text" name="publishDate" id="date"--%>
+            <%--                   value="<fmt:formatDate value="${info.publishDate}" pattern="yyyy-MM-dd"/>"--%>
+            <%--                   lay-verify="date" autocomplete="off" class="layui-input"/>--%>
             <input type="text" name="publishDate" id="date"
-                   value="<fmt:formatDate value="${info.publishDate}" pattern="yyyy-MM-dd"/>"
                    lay-verify="date" autocomplete="off" class="layui-input"/>
         </div>
     </div>
@@ -84,7 +94,7 @@
     <div class="layui-form-item layui-form-text">
         <label class="layui-form-label">图书介绍</label>
         <div class="layui-input-block">
-            <textarea name="introduction" class="layui-textarea" placeholder="请输入介绍信息">${info.introduction}</textarea>
+            <textarea name="introduction" id="bookIntroduction" class="layui-textarea" placeholder="请输入介绍信息"></textarea>
         </div>
     </div>
 
@@ -94,64 +104,66 @@
         </div>
     </div>
 </div>
+<input type="text" placeholder="please input id">
+<button onclick="AjaxTest(1)">AjaxTest</button>
 <script src="${pageContext.request.contextPath}/lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
 <script>
-    layui.use(['form','laydate'], function () {
+    layui.use(['form', 'laydate'], function () {
         var form = layui.form,
             layer = layui.layer,
-            laydate=layui.laydate,
+            laydate = layui.laydate,
             $ = layui.$;
 
         //日期
         laydate.render({
             elem: '#date',
-            trigger:'click'
+            trigger: 'click'
         });
 
         //动态获取图书类型的数据
-        $.get("findAllList",{},function (data) {
+        // TODO: (这块地方也是需要改)
+        $.get("findAllList", {}, function (data) {
             //获取图书类型的值
-            var typeId=$('#typeId')[0].value;
-            var list=data;
-            var select=document.getElementById("typeId");
-            if(list!=null|| list.size()>0){
-                for(var c in list){
-                    var option=document.createElement("option");
-                    option.setAttribute("value",list[c].id);
-                    option.innerText=list[c].name;
+            var typeId = $('#typeId')[0].value;
+            var list = data;
+            var select = document.getElementById("typeId");
+            if (list != null || list.size() > 0) {
+                for (var c in list) {
+                    var option = document.createElement("option");
+                    option.setAttribute("value", list[c].id);
+                    option.innerText = list[c].name;
                     select.appendChild(option);
                     //如果类型和循环到的类型iD一致，选中
-                    if (list[c].id==typeId){
-                        option.setAttribute("selected","selected");
+                    if (list[c].id == typeId) {
+                        option.setAttribute("selected", "selected");
                         layui.form.render('select');
                     }
                 }
             }
             form.render('select');
-        },"json")
+        }, "json")
 
         //监听提交
         form.on('submit(saveBtn)', function (data) {
-            var datas=data.field;//form单中的数据信息
+            var datas = data.field;//form单中的数据信息
             //向后台发送数据提交添加
             $.ajax({
-                // url:"updateBookSubmit",
-                url:"http://101.34.207.32:8081/BooksManageService/updateBookSubmit",
-                type:"POST",
+                url: "updateBookSubmit",
+                type: "POST",
                 // data:datas,
-                contentType:'application/json',
-                data:JSON.stringify(datas),
-                success:function(result){
-                    if(result.code==0){//如果成功
-                        layer.msg('修改成功',{
-                            icon:6,
-                            time:500
-                        },function(){
+                contentType: 'application/json',
+                data: JSON.stringify(datas),
+                success: function (result) {
+                    if (result.code == 0) {//如果成功
+                        layer.msg('修改成功', {
+                            icon: 6,
+                            time: 500
+                        }, function () {
                             parent.window.location.reload();
                             var iframeIndex = parent.layer.getFrameIndex(window.name);
                             parent.layer.close(iframeIndex);
                         })
-                    }else{
+                    } else {
                         layer.msg("修改失败");
                     }
                 }
@@ -159,6 +171,61 @@
             return false;
         });
     });
+
+    function AjaxTest(id) {
+        var $ = layui.$;
+        $.ajax({
+            url: "queryBookInfoByIdJson?id=1",
+            type: "Get",
+            dataType: "json",
+            async: true,
+            success: function (req) {
+                const bookNameInput = document.getElementById('bookNameInput');
+                const bookIsbnInput = document.getElementById('bookIsbnInput');
+                const bookAuthor = document.getElementById('bookAuthor');
+                const bookPublish = document.getElementById('bookPublish');
+                const bookIntroduction = document.getElementById('bookIntroduction');
+                const bookLanguage = document.getElementById('bookLanguage');
+                const bookIdInput = document.getElementById('bookIdInput');
+                const date = document.getElementById('date');
+                const bookStatus = document.getElementById('bookStatus');
+                const bookTypeId = document.getElementById('bookTypeId');
+                const bookPrice = document.getElementById('bookPrice');
+                bookNameInput.value = req.name;
+                // bookIdInput.value = req.id;
+                bookIsbnInput.value=req.isbn;
+                bookAuthor.value=req.author;
+                bookPublish.value=req.publish;
+                bookIntroduction.value=req.introduction;
+                bookLanguage.value=req.language;
+                date.value=req.publishDate;
+                // bookStatus.value=req.status;
+                bookTypeId.value=req.typeId;
+                bookPrice.value=req.price;
+                $.get("findAllList", {}, function (data) {
+                    //获取图书类型的值
+                    var typeId = $('#typeId')[0].value;
+                    var list = data;
+                    var select = document.getElementById("typeId");
+                    if (list != null || list.size() > 0) {
+                        for (var c in list) {
+                            var option = document.createElement("option");
+                            option.setAttribute("value", list[c].id);
+                            option.innerText = list[c].name;
+                            select.appendChild(option);
+                            //如果类型和循环到的类型iD一致，选中
+                            if (list[c].id == typeId) {
+                                option.setAttribute("selected", "selected");
+                                layui.form.render('select');
+                            }
+                        }
+                    }
+                    form.render('select');
+                }, "json")
+                console.log(req);
+            }
+        })
+    }
 </script>
 </body>
 </html>

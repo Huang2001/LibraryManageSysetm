@@ -82,7 +82,8 @@ public class BookInfoController {
      * 获得json数据(通过id查询)
      */
     @GetMapping("/queryBookInfoByIdJson")
-    public String queryTypeInfoByIdJson(Integer id,Model model){
+    @ResponseBody
+    public String queryTypeInfoByIdJson(Integer id){
         BookInfo bookInfo= bookInfoService.queryBookInfoById(id);
         return JsonUtils.getJson(bookInfo);
     }
