@@ -6,6 +6,7 @@ import cn.edu.ecut.pojo.TypeInfo;
 import cn.edu.ecut.service.BookInfoService;
 import cn.edu.ecut.service.TypeInfoService;
 import cn.edu.ecut.utils.DataInfo;
+import cn.edu.ecut.utils.JsonUtils;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -78,9 +79,17 @@ public class BookInfoController {
     }
 
     /**
+     * 获得json数据(通过id查询)
+     */
+    @GetMapping("/queryBookInfoByIdJson")
+    public String queryTypeInfoByIdJson(Integer id,Model model){
+        BookInfo bookInfo= bookInfoService.queryBookInfoById(id);
+        return JsonUtils.getJson(bookInfo);
+    }
+
+    /**
      * 修改提交功能
      */
-
     @RequestMapping("/updateBookSubmit")
     @ResponseBody
     public DataInfo updateBookSubmit(@RequestBody BookInfo info){
