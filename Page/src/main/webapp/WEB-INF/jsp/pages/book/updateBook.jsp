@@ -104,8 +104,8 @@
         </div>
     </div>
 </div>
-<input type="text" placeholder="please input id">
-<button onclick="AjaxTest(1)">AjaxTest</button>
+<input type="text" placeholder="please input id" id="search-id-input">
+<button onclick="AjaxTest()">AjaxTest</button>
 <script src="${pageContext.request.contextPath}/lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
 <script>
     layui.use(['form', 'laydate'], function () {
@@ -172,10 +172,11 @@
         });
     });
 
-    function AjaxTest(id) {
+    function AjaxTest() {
         var $ = layui.$;
+        var id = document.getElementById('search-id-input').value;
         $.ajax({
-            url: "queryBookInfoByIdJson?id=1",
+            url: "queryBookInfoByIdJson?id="+id,
             type: "Get",
             dataType: "json",
             async: true,

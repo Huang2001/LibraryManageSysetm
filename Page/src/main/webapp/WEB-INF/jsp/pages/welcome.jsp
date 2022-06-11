@@ -11,64 +11,226 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/layui-v2.5.5/css/layui.css" media="all">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/font-awesome-4.7.0/css/font-awesome.min.css" media="all">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/font-awesome-4.7.0/css/font-awesome.min.css"
+          media="all">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/public.css" media="all">
+    <%-- import vue--%>
+    <%--    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>--%>
     <style>
-        .layui-card {border:1px solid #f2f2f2;border-radius:5px;}
-        .icon {margin-right:10px;color:#1aa094;}
-        .icon-cray {color:#ffb800!important;}
-        .icon-blue {color:#1e9fff!important;}
-        .icon-tip {color:#ff5722!important;}
-        .layuimini-qiuck-module {text-align:center;margin-top: 10px}
-        .layuimini-qiuck-module a i {display:inline-block;width:100%;height:60px;line-height:60px;text-align:center;border-radius:2px;font-size:30px;background-color:#F8F8F8;color:#333;transition:all .3s;-webkit-transition:all .3s;}
-        .layuimini-qiuck-module a cite {position:relative;top:2px;display:block;color:#666;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;font-size:14px;}
-        .welcome-module {width:100%;height:210px;}
-        .panel {background-color:#fff;border:1px solid transparent;border-radius:3px;-webkit-box-shadow:0 1px 1px rgba(0,0,0,.05);box-shadow:0 1px 1px rgba(0,0,0,.05)}
-        .panel-body {padding:10px}
-        .panel-title {margin-top:0;margin-bottom:0;font-size:12px;color:inherit}
-        .label {display:inline;padding:.2em .6em .3em;font-size:75%;font-weight:700;line-height:1;color:#fff;text-align:center;white-space:nowrap;vertical-align:baseline;border-radius:.25em;margin-top: .3em;}
-        .layui-red {color:red}
-        .main_btn > p {height:40px;}
-        .layui-bg-number {background-color:#F8F8F8;}
-        .layuimini-notice:hover {background:#f6f6f6;}
-        .layuimini-notice {padding:7px 16px;clear:both;font-size:12px !important;cursor:pointer;position:relative;transition:background 0.2s ease-in-out;}
-        .layuimini-notice-title,.layuimini-notice-label {
-            padding-right: 70px !important;text-overflow:ellipsis!important;overflow:hidden!important;white-space:nowrap!important;}
-        .layuimini-notice-title {line-height:28px;font-size:14px;}
-        .layuimini-notice-extra {position:absolute;top:50%;margin-top:-8px;right:16px;display:inline-block;height:16px;color:#999;}
+        .layui-card {
+            border: 1px solid #f2f2f2;
+            border-radius: 5px;
+        }
+
+        .icon {
+            margin-right: 10px;
+            color: #1aa094;
+        }
+
+        .icon-cray {
+            color: #ffb800 !important;
+        }
+
+        .icon-blue {
+            color: #1e9fff !important;
+        }
+
+        .icon-tip {
+            color: #ff5722 !important;
+        }
+
+        .layuimini-qiuck-module {
+            text-align: center;
+            margin-top: 10px
+        }
+
+        .layuimini-qiuck-module a i {
+            display: inline-block;
+            width: 100%;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            border-radius: 2px;
+            font-size: 30px;
+            background-color: #F8F8F8;
+            color: #333;
+            transition: all .3s;
+            -webkit-transition: all .3s;
+        }
+
+        .layuimini-qiuck-module a cite {
+            position: relative;
+            top: 2px;
+            display: block;
+            color: #666;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            font-size: 14px;
+        }
+
+        .welcome-module {
+            width: 100%;
+            height: 210px;
+        }
+
+        .panel {
+            background-color: #fff;
+            border: 1px solid transparent;
+            border-radius: 3px;
+            -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+            box-shadow: 0 1px 1px rgba(0, 0, 0, .05)
+        }
+
+        .panel-body {
+            padding: 10px
+        }
+
+        .panel-title {
+            margin-top: 0;
+            margin-bottom: 0;
+            font-size: 12px;
+            color: inherit
+        }
+
+        .label {
+            display: inline;
+            padding: .2em .6em .3em;
+            font-size: 75%;
+            font-weight: 700;
+            line-height: 1;
+            color: #fff;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: baseline;
+            border-radius: .25em;
+            margin-top: .3em;
+        }
+
+        .layui-red {
+            color: red
+        }
+
+        .main_btn > p {
+            height: 40px;
+        }
+
+        .layui-bg-number {
+            background-color: #F8F8F8;
+        }
+
+        .layuimini-notice:hover {
+            background: #f6f6f6;
+        }
+
+        .layuimini-notice {
+            padding: 7px 16px;
+            clear: both;
+            font-size: 12px !important;
+            cursor: pointer;
+            position: relative;
+            transition: background 0.2s ease-in-out;
+        }
+
+        .layuimini-notice-title, .layuimini-notice-label {
+            padding-right: 70px !important;
+            text-overflow: ellipsis !important;
+            overflow: hidden !important;
+            white-space: nowrap !important;
+        }
+
+        .layuimini-notice-title {
+            line-height: 28px;
+            font-size: 14px;
+        }
+
+        .layuimini-notice-extra {
+            position: absolute;
+            top: 50%;
+            margin-top: -8px;
+            right: 16px;
+            display: inline-block;
+            height: 16px;
+            color: #999;
+        }
     </style>
 </head>
 <body>
 <div class="layuimini-container">
 
-            <div class="layui-col-md4">
+    <div class="layui-col-md4">
 
-                <div class="layui-card">
-                    <div class="layui-card-header"><i class="fa fa-bullhorn icon icon-tip"></i>系统公告</div>
-                        <div class="layui-card-body layui-text">
-                            <c:forEach var="notice" items="${noticeList}">
-                                <div class="layuimini-notice">
-                                    <div class="layuimini-notice-title">${notice.topic}</div>
-                                    <div class="layuimini-notice-extra"><fmt:formatDate value="${notice.createDate}" pattern="yyyy-MM-dd HH:mm:ss" /></div>
-                                    <div class="layuimini-notice-content layui-hide">
-                                        ${notice.content}
-                                    </div>
-                                </div>
-                            </c:forEach>
-                        </div>
-                    </div>
+        <div class="layui-card">
+            <div class="layui-card-header"><i class="fa fa-bullhorn icon icon-tip"></i>系统公告</div>
+            <div class="layui-card-body layui-text" id="noticeList">
+                <%--                <div class="layuimini-notice">--%>
+                <%--                <c:forEach var="notice" items="${noticeList}">--%>
+                <%--                    <div class="layuimini-notice">--%>
+                <%--                        <div class="layuimini-notice-title">${notice.topic}</div>--%>
+                <%--                        <div class="layuimini-notice-extra"><fmt:formatDate value="${notice.createDate}"--%>
+                <%--                                                                            pattern="yyyy-MM-dd HH:mm:ss"/></div>--%>
+                <%--                        <div class="layuimini-notice-content layui-hide">--%>
+                <%--                                ${notice.content}--%>
+                <%--                        </div>--%>
+                <%--                    </div>--%>
+                <%--                </c:forEach>--%>
+                <%--                </div>--%>
             </div>
+        </div>
+    </div>
+</div>
 </div>
 <script src="${pageContext.request.contextPath}/lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
 <script src="${pageContext.request.contextPath}/js/lay-config.js?v=1.0.4" charset="utf-8"></script>
 <script>
-    layui.use(['layer', 'miniTab','echarts'], function () {
+    layui.use(['layer', 'miniTab', 'echarts'], function () {
         var $ = layui.jquery,
             layer = layui.layer,
             miniTab = layui.miniTab,
             echarts = layui.echarts;
 
         miniTab.listen();
+
+        /**
+         * test Ajax
+         */
+
+        $.ajax({
+            url: "welcomeJson",
+            type: 'Get',
+            dataType: "json",
+            async: true,
+            success: function (req) {
+                console.log(req);
+                const length = req.length;
+                for (var i = 0; i < length; i++) {
+                    const noticeTopic = req[i].topic;
+                    const noticeCreateDate = req[i].createDate;
+                    const noticeAuthor = req[i].author;
+                    const noticeContent = req[i].content;
+
+                    var divNoticeList = document.getElementById('noticeList');
+                    var divNotice = document.createElement('div');
+                    divNotice.className = 'layuimini-notice';
+                    var divNoticeTitle = document.createElement("div");
+                    divNoticeTitle.className = 'layuimini-notice-title';
+                    divNoticeTitle.innerText = noticeTopic;
+                    var divNoticeExtra = document.createElement("div");
+                    divNoticeExtra.className = 'layuimini-notice-extra';
+                    // divNoticeExtra.innerText = 'test';
+                    divNoticeExtra.innerTest = noticeCreateDate;
+                    var divNoticeContent = document.createElement("div");
+                    divNoticeContent.className = "layuimini-notice-content layui-hide";
+                    divNoticeContent.innerText = noticeContent;
+
+                    divNoticeList.appendChild(divNotice);
+                    divNotice.appendChild(divNoticeTitle);
+                    divNotice.appendChild(divNoticeExtra);
+                    divNotice.appendChild(divNoticeContent);
+
+                }
+            }
+        })
 
         /**
          * 查看公告信息
@@ -83,17 +245,16 @@
                 '</div>\n';
             parent.layer.open({
                 type: 1,
-                title: '系统公告'+'<span style="float: right;right: 1px;font-size: 12px;color: #b1b3b9;margin-top: 1px">'+noticeTime+'</span>',
+                title: '系统公告' + '<span style="float: right;right: 1px;font-size: 12px;color: #b1b3b9;margin-top: 1px">' + noticeTime + '</span>',
                 area: '300px;',
                 shade: 0.8,
                 id: 'layuimini-notice',
                 btnAlign: 'c',
                 moveType: 1,
-                content:html
+                content: html
             });
         });
     });
 </script>
 </body>
 </html>
-

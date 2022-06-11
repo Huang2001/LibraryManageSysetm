@@ -42,6 +42,21 @@ public class BaseController {
         return "welcome";
     }
 
+    /**
+     * 获得json数据
+     */
+    @GetMapping("/welcomeJson")
+    @ResponseBody
+    public String welcomeJson(){
+        PageInfo<Notice> pageInfo =  noticeService.queryAllNotice(null,1,5);
+        if (pageInfo!=null){
+            List<Notice> noticeList = pageInfo.getList();
+            return JsonUtils.getJson(noticeList);
+        }
+        return "";
+    }
+
+
     @GetMapping("/updatePassword")
     public String updatePwd(){
         return "pwdUpdate/updatePwd";
