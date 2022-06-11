@@ -92,28 +92,49 @@
             cols: [[
                 {type: "checkbox", width: 50},
                 //{field: 'id', width: 100, title: 'ID', sort: true},
-                {templet: '<div><a href="javascript:void(0)" style="color:#00b7ee" lay-event="bookInfoEvent">{{d.bookInfo.name}}</a></div>',
-                    width: 100, title: '图书名称'},
+                // 删除时间线
+                // {templet: '<div><a href="javascript:void(0)" style="color:#00b7ee" lay-event="bookInfoEvent">{{d.bookInfo.name}}</a></div>',
+                {
+                    templet: '<div><a href="javascript:void(0)" style="color:#00b7ee" >{{d.bookInfo.name}}</a></div>',
+                    width: 100, title: '图书名称'
+                },
                 {templet: '<div>{{d.readerInfo.readerNumber}}</div>', width: 120, title: '借书卡'},
-                {templet: '<div><a href="javascript:void(0)" style="color:#00b7ee" lay-event="readerInfoEvent">{{d.readerInfo.realName}}</a></div>',
-                    width: 100, title: '借阅人'},
+                // 删除读书线
+                // {templet: '<div><a href="javascript:void(0)" style="color:#00b7ee" lay-event="readerInfoEvent">{{d.readerInfo.realName}}</a></div>',
+                {
+                    templet: '<div><a href="javascript:void(0)" style="color:#00b7ee" >{{d.readerInfo.realName}}</a></div>',
+                    width: 100, title: '借阅人'
+                },
                 // {templet: '<div>{{d.reader.name}}</div>', width: 80, title: '借阅人'},
-                {templet:"<div>{{layui.util.toDateString(d.lendDate,'yyyy-MM-dd HH:mm:ss')}}</div>", width: 160, title: '借阅时间'},
-                {field: 'backDate', width: 160, title: '还书时间'},
-                {title:"还书类型",minWidth: 120,templet:function(res){
-                      if(res.backType=='0'){
-                          return '<span class="layui-badge layui-bg-green">正常还书</span>'
-                      }else if(res.backType=='1'){
-                          return '<span class="layui-badge layui-bg-gray">延迟还书</span>'
+                {
+                    templet: "<div>{{layui.util.toDateString(d.lendDate,'yyyy-MM-dd HH:mm:ss')}}</div>",
+                    width: 160,
+                    title: '借阅时间'
+                },
+                // 如果是null就返回当前时间（已修复）
+                {
+                    templet: "<div>{{d.backDate === null ? '' :  layui.util.toDateString(d.lendDate,'yyyy-MM-dd HH:mm:ss')}}</div>",
+                    width: 160,
+                    title: '还书时间'
+                },
+                // {field: 'backDate', width: 160, title: '还书时间test'},
+                // {field: layui.util.toDateString('backDate','yyyy-MM-dd HH:mm:ss'), width: 160, title: '还书时间'},
+                {
+                    title: "还书类型", minWidth: 120, templet: function (res) {
+                        if (res.backType == '0') {
+                            return '<span class="layui-badge layui-bg-green">正常还书</span>'
+                        } else if (res.backType == '1') {
+                            return '<span class="layui-badge layui-bg-gray">延迟还书</span>'
 
-                      }else if(res.backType=='2') {
-                          return '<span class="layui-badge layui-bg-yellow">破损还书</span>'
-                      }else if(res.backType=='3'){
-                          return '<span class="layui-badge layui-bg-green">丢失图书</span>'
-                      }else{
-                          return '<span class="layui-badge layui-bg-red">在借中</span>'
-                      }
-                    }},
+                        } else if (res.backType == '2') {
+                            return '<span class="layui-badge layui-bg-yellow">破损还书</span>'
+                        } else if (res.backType == '3') {
+                            return '<span class="layui-badge layui-bg-green">丢失图书</span>'
+                        } else {
+                            return '<span class="layui-badge layui-bg-red">在借中</span>'
+                        }
+                    }
+                },
                 {title: '操作', minWidth: 150, toolbar: '#currentTableBar', align: "center"}
             ]],
             limits: [10, 15, 20, 25, 50, 100],

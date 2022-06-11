@@ -49,7 +49,7 @@ public class BaseController {
     @ResponseBody
     public String welcomeJson(){
         PageInfo<Notice> pageInfo =  noticeService.queryAllNotice(null,1,5);
-        if (pageInfo!=null){
+       if (pageInfo!=null){
             List<Notice> noticeList = pageInfo.getList();
             return JsonUtils.getJson(noticeList);
         }
