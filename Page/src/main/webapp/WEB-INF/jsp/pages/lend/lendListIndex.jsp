@@ -20,32 +20,32 @@
         <div class="layuimini-main">
             <div class="demoTable">
                 <div class="layui-form-item layui-form ">
-                    借书卡
-                    <div class="layui-inline">
-                        <input class="layui-input" name="readerNumber" id="readerNumber" autocomplete="off">
-                    </div>
+<%--                    借书卡--%>
+<%--                    <div class="layui-inline">--%>
+<%--                        <input class="layui-input" name="readerNumber" id="readerNumber" autocomplete="off">--%>
+<%--                    </div>--%>
                     图书名称
                     <div class="layui-inline">
                         <input class="layui-input" name="name" id="name" autocomplete="off">
                     </div>
-                    归还类型
-                    <div class="layui-inline">
-                        <select class="layui-input" name="type" id="type">
-                            <option value=""></option>
-                            <option value="0">正常还书</option>
-                            <option value="1">延迟还书</option>
-                            <option value="2">破损还书</option>
-                            <option value="3">丢失</option>
-                        </select>
-                    </div>
-                   图书类型
-                    <div class="layui-inline">
-                        <select class="layui-input" name="status" id="status">
-                            <option value=""></option>
-                            <option value="0">未借出</option>
-                            <option value="1">在借中</option>
-                        </select>
-                    </div>
+<%--                    归还类型--%>
+<%--                    <div class="layui-inline">--%>
+<%--                        <select class="layui-input" name="type" id="type">--%>
+<%--                            <option value=""></option>--%>
+<%--                            <option value="0">正常还书</option>--%>
+<%--                            <option value="1">延迟还书</option>--%>
+<%--                            <option value="2">破损还书</option>--%>
+<%--                            <option value="3">丢失</option>--%>
+<%--                        </select>--%>
+<%--                    </div>--%>
+<%--                   图书类型--%>
+<%--                    <div class="layui-inline">--%>
+<%--                        <select class="layui-input" name="status" id="status">--%>
+<%--                            <option value=""></option>--%>
+<%--                            <option value="0">未借出</option>--%>
+<%--                            <option value="1">在借中</option>--%>
+<%--                        </select>--%>
+<%--                    </div>--%>
                     <button class="layui-btn" data-type="reload">搜索</button>
                 </div>
             </div>
@@ -53,6 +53,7 @@
         <script type="text/html" id="toolbarDemo">
             <div class="layui-btn-container">
                 <button class="layui-btn layui-btn-normal layui-btn-sm data-add-btn" lay-event="add"> 借书 </button>
+
                 <button class="layui-btn layui-btn-normal layui-btn-sm data-add-btn" lay-event="back"> 还书 </button>
                 <button class="layui-btn layui-btn-sm layui-btn-danger data-delete-btn" lay-event="delete"> 删除 </button>
             </div>
